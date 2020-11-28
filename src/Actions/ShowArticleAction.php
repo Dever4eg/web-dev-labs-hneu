@@ -7,15 +7,9 @@ use src\ViewRenderer;
 
 class ShowArticleAction
 {
-    /**
-     * @var ArticlesRepositoryInterface
-     */
-    private $articlesRepository;
+    private ArticlesRepositoryInterface $articlesRepository;
 
-    /**
-     * @var ViewRenderer
-     */
-    private $renderer;
+    private ViewRenderer $renderer;
 
     public function __construct(
         ArticlesRepositoryInterface $articlesRepository,

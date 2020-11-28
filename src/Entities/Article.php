@@ -4,87 +4,52 @@ namespace src\Entities;
 
 class Article
 {
-    /**
-     * @var int
-     */
-    private $id;
+    private int $id;
+    private string $title;
+    private string $text;
+    private string $image;
 
-    /**
-     * @var String
-     */
-    private $title;
-
-    /**
-     * @var string
-     */
-    private $text;
-
-    /**
-     * @var string
-     */
-    private $image;
-
-    /**
-     * @return int
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
+    public function setId(int $id): self
     {
         $this->id = $id;
+        return $this;
     }
 
-    /**
-     * @return String
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param String $title
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
+        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getImage()
+    public function getImage(): string
     {
         return $this->image;
     }
 
-    /**
-     * @param string $image
-     */
-    public function setImage($image)
+    public function setImage(string $image): self
     {
         $this->image = $image;
+        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * @param string $text
-     */
-    public function setText($text)
+    public function setText(string $text): self
     {
         $this->text = $text;
+        return $this;
     }
 }
