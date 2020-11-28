@@ -26,6 +26,10 @@ $meAction = new MeAction($renderer, $authorizer);
 $signInPageAction = new SignInPageAction($renderer);
 $signInAction = new SignInAction($renderer, $authorizer, $userRepository);
 
+$renderer->addOptions([
+    'user' => $authorizer->getAuthorizedUser()
+]);
+
 switch (true) {
     case preg_match('~/articles/(\d+)~', $path, $matches):
         $id = (int) $matches[1];

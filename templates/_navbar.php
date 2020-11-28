@@ -1,3 +1,10 @@
+<?php
+use src\Entities\User;
+
+/**
+ * @var User $user
+ */
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/articles">HNEU Web Babs</a>
   <button
@@ -19,9 +26,15 @@
       </li>
     </ul>
     <ul class="navbar-nav my-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="/signin">Sign in</a>
-      </li>
+      <?php if(null != $user): ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/me"><?php echo $user->getUsername() ?></a>
+        </li>
+      <?php else: ?>
+        <li class="nav-item">
+          <a class="nav-link" href="/signin">Sign in</a>
+        </li>
+      <?php endif; ?>
     </ul>
   </div>
 </nav>

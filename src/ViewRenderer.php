@@ -7,6 +7,8 @@ class ViewRenderer
     private string $templatePath;
     private string $defaultLayout;
 
+    private array $options = [];
+
     public function __construct($templatePath, $defaultLayout)
     {
         $this->templatePath = $templatePath;
@@ -21,6 +23,8 @@ class ViewRenderer
 
     public function render(string $view, array $options = [], $layout = null): string
     {
+        $options = array_merge($this->options, $options);
+
         foreach($options as $key => $val)
         {
             $$key = $val;
@@ -38,5 +42,13 @@ class ViewRenderer
         }
 
         return $content;
+    }
+
+    public function addOptions(array $options)
+    {
+        $this->options = array_merge(
+            $this->options,
+            $options
+        );
     }
 }
