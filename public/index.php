@@ -15,11 +15,12 @@ $articleRepository = new ArticlesArrayRepository();
 $listArticleAction = new ListArticleAction($articleRepository, $renderer);
 $showArticleAction = new ShowArticleAction($articleRepository, $renderer);
 
-if (preg_match('~/articles/(\d+)~', $path, $matches)) {
-    $id = (int) $matches[1];
-    $showArticleAction($id);
-}
-
-if ($path == '/articles') {
-    $listArticleAction();
+switch (true) {
+    case preg_match('~/articles/(\d+)~', $path, $matches):
+        $id = (int) $matches[1];
+        $showArticleAction($id);
+        break;
+    default:
+        $listArticleAction();
+        break;
 }
