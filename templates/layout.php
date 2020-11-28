@@ -16,8 +16,8 @@
   <title>HNEU web labs!</title>
 </head>
 <body>
+  <?php require __DIR__ . '/_navbar.php' ?>
   <div class="container">
-    <?php require __DIR__ . '/_navbar.php' ?>
     <?php echo $content ?>
   </div>
 
