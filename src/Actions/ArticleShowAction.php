@@ -5,7 +5,7 @@ namespace src\Actions;
 use src\Repository\ArticlesRepositoryInterface;
 use src\ViewRenderer;
 
-class ShowArticleAction
+class ArticleShowAction
 {
     private ArticlesRepositoryInterface $articlesRepository;
 

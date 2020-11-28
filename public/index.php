@@ -1,7 +1,7 @@
 <?php
 
-use src\Actions\ListArticleAction;
-use src\Actions\ShowArticleAction;
+use src\Actions\ArticleListAction;
+use src\Actions\ArticleShowAction;
 use src\Repository\ArticlesArrayRepository;
 use src\ViewRenderer;
 
@@ -12,8 +12,8 @@ $path = parse_url($_SERVER['REQUEST_URI'])['path'];
 $renderer = new ViewRenderer(__DIR__ . '/../templates/', 'layout');
 $articleRepository = new ArticlesArrayRepository();
 
-$listArticleAction = new ListArticleAction($articleRepository, $renderer);
-$showArticleAction = new ShowArticleAction($articleRepository, $renderer);
+$listArticleAction = new ArticleListAction($articleRepository, $renderer);
+$showArticleAction = new ArticleShowAction($articleRepository, $renderer);
 
 switch (true) {
     case preg_match('~/articles/(\d+)~', $path, $matches):
