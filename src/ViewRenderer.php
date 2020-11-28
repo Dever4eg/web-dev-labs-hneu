@@ -4,8 +4,8 @@ namespace src;
 
 class ViewRenderer
 {
-    private $templatePath;
-    private $defaultLayout;
+    private string $templatePath;
+    private string $defaultLayout;
 
     public function __construct($templatePath, $defaultLayout)
     {
