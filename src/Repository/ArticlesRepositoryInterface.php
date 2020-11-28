@@ -13,7 +13,7 @@ interface ArticlesRepositoryInterface
 
     /**
      * @param int $id
-     * @return Article
+     * @return Article|null
      */
-    public function findArticleById(int $id): Article;
+    public function findArticleById(int $id): ?Article;
 }

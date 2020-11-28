@@ -63,7 +63,7 @@ class ArticlesArrayRepository implements ArticlesRepositoryInterface
         );
     }
 
-    public function findArticleById(int $id): Article
+    public function findArticleById(int $id): ?Article
     {
         foreach ($this->articles as $article) {
             if ($article['id'] === $id) {
@@ -75,7 +75,6 @@ class ArticlesArrayRepository implements ArticlesRepositoryInterface
             }
         }
 
-        // todo: add not found exception
-        return new Article();
+        return null;
     }
 }
