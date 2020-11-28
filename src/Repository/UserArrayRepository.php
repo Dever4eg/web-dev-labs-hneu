@@ -32,4 +32,18 @@ class UserArrayRepository implements UserRepositoryInterface
 
         return null;
     }
+
+    public function findByUsernameAndPassword(string $username, string $passwordHash): ?User
+    {
+        foreach ($this->users as $user) {
+            if ($user['username'] === $username && $user['passwordHash'] === $passwordHash) {
+                return (new User())
+                    ->setId($user['id'])
+                    ->setUsername($user['username'])
+                    ->setPasswordHash($user['passwordHash']);
+            }
+        }
+
+        return null;
+    }
 }
