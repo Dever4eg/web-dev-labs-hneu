@@ -1,0 +1,15 @@
+{
+    "name": "dever/web-lab",
+    "authors": [
+        {
+            "name": "Bogdan Onischenko",
+            "email": "bogdan.onischenko@nixsolutions.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    }
+}
