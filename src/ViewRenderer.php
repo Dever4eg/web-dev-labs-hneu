@@ -21,6 +21,14 @@ class ViewRenderer
         echo $result;
     }
 
+    /**
+     * Renders php template into a string
+     *
+     * @param string $view template file name
+     * @param array $options template variables
+     * @param null $layout layout name
+     * @return string
+     */
     public function render(string $view, array $options = [], $layout = null): string
     {
         $options = array_merge($this->options, $options);
