@@ -17,6 +17,8 @@ services:
       - .:/var/www
     depends_on:
       - mysql
+    env_file:
+      - .env
 
   mysql:
     image: mysql
