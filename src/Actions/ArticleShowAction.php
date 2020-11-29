@@ -22,6 +22,12 @@ class ArticleShowAction
     public function __invoke(int $id)
     {
         $article = $this->articlesRepository->findArticleById($id);
+
+        if (null == $article) {
+            $this->renderer->show('not-found');
+            return;
+        }
+
         $this->renderer->show('article', ['article' => $article]);
     }
 }

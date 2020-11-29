@@ -23,7 +23,13 @@ $dsn = sprintf(
     $config['database']['name'],
     $config['database']['charset']
 );
-$pdo = new PDO($dsn, $config['database']['username'], $config['database']['password']);
+
+try {
+    $pdo = new PDO($dsn, $config['database']['username'], $config['database']['password']);
+} catch (Throwable $throwable) {
+    echo 'Database connection error: ' . $throwable->getMessage();
+    die;
+}
 
 $renderer = new ViewRenderer(__DIR__ . '/../templates/', 'layout');
 $articleRepository = new ArticlesDatabaseRepository($pdo);
