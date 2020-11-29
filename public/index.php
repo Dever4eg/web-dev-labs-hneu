@@ -1,7 +1,9 @@
 <?php
 
+use src\Actions\ArticleCreateAction;
 use src\Actions\ArticleListAction;
 use src\Actions\ArticleShowAction;
+use src\Actions\ArticleStoreAction;
 use src\Actions\MeAction;
 use src\Actions\SignInAction;
 use src\Actions\SignInPageAction;
@@ -33,6 +35,8 @@ $showArticleAction = new ArticleShowAction($articleRepository, $renderer);
 $meAction = new MeAction($renderer, $authorizer);
 $signInPageAction = new SignInPageAction($renderer);
 $signInAction = new SignInAction($renderer, $authorizer, $userRepository);
+$articleCreateAction = new ArticleCreateAction($articleRepository, $renderer, $authorizer);
+$articleStoreAction = new ArticleStoreAction($articleRepository, $renderer, $authorizer);
 
 $renderer->addOptions([
     'user' => $authorizer->getAuthorizedUser()
@@ -55,7 +59,19 @@ switch (true) {
     case '/signin' == $path && $method == 'POST':
         $signInAction();
         break;
-    default:
+    case '/articles' == $path && $method == 'GET':
         $listArticleAction();
+        break;
+    case '/articles' == $path && $method == 'POST':
+        $articleStoreAction();
+        break;
+    case '/articles/create' == $path && $method == 'GET':
+        $articleCreateAction();
+        break;
+    case '/' == $path:
+        header('Location: /articles');
+        break;
+    default:
+        echo '404 Not found';
         break;
 }

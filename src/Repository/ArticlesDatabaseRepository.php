@@ -4,6 +4,7 @@ namespace src\Repository;
 
 use PDO;
 use src\Entities\Article;
+use src\Repository\Dto\ArticleCreateDto;
 
 class ArticlesDatabaseRepository implements ArticlesRepositoryInterface
 {
@@ -42,5 +43,18 @@ class ArticlesDatabaseRepository implements ArticlesRepositoryInterface
             ->setTitle($article['title'])
             ->setImage($article['image_url'])
             ->setText($article['text']);
+    }
+
+    public function createNewArticle(ArticleCreateDto $dto): bool
+    {
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO articles (title, text, image_url) VALUES (:title, :text, :image_url)'
+        );
+
+        return $stmt->execute([
+           'title' => $dto->getTitle(),
+           'text' => $dto->getText(),
+           'image_url' => $dto->getImageUrl(),
+        ]);
     }
 }

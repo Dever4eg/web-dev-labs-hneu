@@ -3,6 +3,7 @@
 namespace src\Repository;
 
 use src\Entities\Article;
+use src\Repository\Dto\ArticleCreateDto;
 
 interface ArticlesRepositoryInterface
 {
@@ -16,4 +17,6 @@ interface ArticlesRepositoryInterface
      * @return Article|null
      */
     public function findArticleById(int $id): ?Article;
+
+    public function createNewArticle(ArticleCreateDto $dto): bool;
 }

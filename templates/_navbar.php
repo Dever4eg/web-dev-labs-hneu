@@ -24,6 +24,9 @@ use src\Entities\User;
       <li class="nav-item">
         <a class="nav-link" href="/articles">Articles</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/articles/create">Create new Article</a>
+      </li>
     </ul>
     <ul class="navbar-nav my-lg-0">
       <?php if(null != $user): ?>

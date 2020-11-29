@@ -3,6 +3,7 @@
 namespace src\Repository;
 
 use src\Entities\Article;
+use src\Repository\Dto\ArticleCreateDto;
 
 class ArticlesArrayRepository implements ArticlesRepositoryInterface
 {
@@ -76,5 +77,9 @@ class ArticlesArrayRepository implements ArticlesRepositoryInterface
         }
 
         return null;
+    }
+
+    public function createNewArticle(ArticleCreateDto $dto): void
+    {
     }
 }
