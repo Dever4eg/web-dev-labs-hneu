@@ -11,7 +11,7 @@ cp .env.example .env
 docker-compose up -d
 ```
 
-Завантажуємо дамп бази данних
+Завантажуємо дамп бази данних (потрібно дочекатися завантаження серверу БД)
 ```
 cat dump.sql | docker-compose exec -T mysql usr/bin/mysql -u root --password=password webdev
 ```
