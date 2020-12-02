@@ -15,3 +15,5 @@ docker-compose up -d
 ```
 cat dump.sql | docker-compose exec -T mysql usr/bin/mysql -u root --password=password webdev
 ```
+
+Відкриваємо в браузері http://127.0.0.1:8080
