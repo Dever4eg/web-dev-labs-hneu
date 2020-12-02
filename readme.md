@@ -3,7 +3,7 @@
 Копіюємо файл оточення
 
 ```
-cp .env.example
+cp .env.example .env
 ```
 
 Завантажуємо docker контейнери 
